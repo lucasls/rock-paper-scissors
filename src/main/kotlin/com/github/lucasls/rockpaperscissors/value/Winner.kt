@@ -1,5 +1,5 @@
 package com.github.lucasls.rockpaperscissors.value
 
-enum class BattleWinner {
+enum class Winner {
     PlayerOne, PlayerTwo, None
 }

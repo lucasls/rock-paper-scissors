@@ -2,17 +2,40 @@ package com.github.lucasls.rockpaperscissors.service
 
 import com.github.lucasls.rockpaperscissors.domain.Player
 import com.github.lucasls.rockpaperscissors.domain.Shape
-import com.github.lucasls.rockpaperscissors.value.BattleWinner
-import com.github.lucasls.rockpaperscissors.value.BattleWinner.*
+import com.github.lucasls.rockpaperscissors.value.FinalGameResult
+import com.github.lucasls.rockpaperscissors.value.Winner
+import com.github.lucasls.rockpaperscissors.value.Winner.*
 import com.github.lucasls.rockpaperscissors.value.GameScore
 import com.github.lucasls.rockpaperscissors.value.RoundResult
+
+typealias RoundInterceptor = (RoundResult) -> Unit
 
 class GameService(
     private val playerOne: Player,
     private val playerTwo: Player
 ) {
 
-    fun round(previousScore: GameScore): RoundResult {
+    fun startGame(numberOfRounds: Int, roundInterceptor: RoundInterceptor = {}): FinalGameResult {
+        var currentScore = GameScore()
+
+        repeat(numberOfRounds) {
+            val roundResult = round(currentScore)
+            roundInterceptor.invoke(roundResult)
+            currentScore = roundResult.gameScore
+        }
+
+        val winner = with(currentScore) {
+            when {
+                playerOneWins > playerTwoWins -> PlayerOne
+                playerOneWins < playerTwoWins -> PlayerTwo
+                else -> None
+            }
+        }
+
+        return FinalGameResult(winner, currentScore)
+    }
+
+    internal fun round(previousScore: GameScore): RoundResult {
         val playerOneShape = playerOne.play()
         val playerTwoShape = playerTwo.play()
 
@@ -27,7 +50,7 @@ class GameService(
         return RoundResult(playerOneShape, playerTwoShape, battleWinner, gameScore)
     }
 
-    internal fun fight(playerOneShape: Shape, playerTwoShape: Shape): BattleWinner {
+    internal fun fight(playerOneShape: Shape, playerTwoShape: Shape): Winner {
         return when (playerTwoShape) {
             playerOneShape -> None
             playerOneShape.beats() -> PlayerOne
