@@ -12,12 +12,4 @@ enum class Shape {
     };
 
     abstract fun beats(): Shape
-
-    fun fight(opponent: Shape): GameResult {
-        return when (opponent) {
-            this -> GameResult.Draw
-            beats() -> GameResult.Win
-            else -> GameResult.Lose
-        }
-    }
 }
