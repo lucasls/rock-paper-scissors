@@ -1,12 +1,13 @@
 package com.github.lucasls.rockpaperscissors.application
 
 import com.github.lucasls.rockpaperscissors.application.config.ApplicationConfig
-import com.github.lucasls.rockpaperscissors.application.io.TextOutput
 import com.github.lucasls.rockpaperscissors.service.GameService
+import java.io.PrintStream
+import java.io.PrintWriter
 
 class RockPaperScissorApplication(
     private val gameService: GameService,
-    private val out: TextOutput
+    private val out: PrintStream
 ) {
 
     fun start() {

@@ -1,7 +1,6 @@
 package com.github.lucasls.rockpaperscissors.application.config
 
 import com.github.lucasls.rockpaperscissors.application.RockPaperScissorApplication
-import com.github.lucasls.rockpaperscissors.application.io.TextOutput
 import com.github.lucasls.rockpaperscissors.domain.FixedShapePlayer
 import com.github.lucasls.rockpaperscissors.domain.RandomShapePlayer
 import com.github.lucasls.rockpaperscissors.domain.Shape
@@ -14,7 +13,6 @@ object ApplicationConfig {
     private val playerTwo by lazy { FixedShapePlayer(Shape.Rock) }
     private val gameService by lazy { GameService(playerOne, playerTwo) }
 
-    private val out by lazy { TextOutput() }
-    val application by lazy { RockPaperScissorApplication(gameService, out) }
+    val application by lazy { RockPaperScissorApplication(gameService, System.out) }
 
 }
