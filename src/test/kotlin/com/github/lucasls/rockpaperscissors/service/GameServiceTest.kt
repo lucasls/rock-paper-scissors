@@ -107,7 +107,7 @@ class GameServiceTest {
         // GIVEN
         whenever(playerOne.play()).then { Shape.Rock }
         whenever(playerTwo.play()).then { Shape.Scissors }
-        val roundInterceptor: RoundInterceptor = mock()
+        val roundInterceptor: (RoundResult) -> Unit = mock()
         val numberOfRounds = 20
 
         // WHEN
@@ -124,7 +124,7 @@ class GameServiceTest {
         // GIVEN
         whenever(playerOne.play()).then { Shape.Rock }
         whenever(playerTwo.play()).then { Shape.Scissors }
-        val roundInterceptor: RoundInterceptor = mock()
+        val roundInterceptor: (RoundResult) -> Unit = mock()
 
         // WHEN
         gameService.startGame(5, roundInterceptor)
@@ -195,10 +195,10 @@ class GameServiceTest {
             .thenReturn(Shape.Paper)
 
         // WHEN
-        val (winner, gameScore) = gameService.startGame(5)
+        val finalGameResult = gameService.startGame(5)
 
         // THEN
-        expectThat(winner) isEqualTo Winner.None
-        expectThat(gameScore) isEqualTo GameScore(playerOneWins = 2, playerTwoWins = 2, draws = 1)
+        expectThat(finalGameResult.winner) isEqualTo Winner.None
+        expectThat(finalGameResult.gameScore) isEqualTo GameScore(playerOneWins = 2, playerTwoWins = 2, draws = 1)
     }
 }

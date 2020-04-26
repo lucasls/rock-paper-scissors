@@ -6,25 +6,27 @@ import com.github.lucasls.rockpaperscissors.value.RoundResult
 import com.github.lucasls.rockpaperscissors.value.Winner
 import java.io.PrintStream
 
-private const val EMOJI_ROCK = "✊"
-private const val EMOJI_PAPER = "✋"
-private const val EMOJI_SCISSORS = "✌️"
-
-private const val EMOJI_PLAYER_ONE = "🧐"
-private const val EMOJI_PLAYER_TWO = "🤪"
-
-private const val EMOJI_TROPHY = "🏆"
-private const val EMOJI_RED_X = "❌"
-
-private const val TEXT_PLAYER_ONE = "Player 1"
-private const val TEXT_PLAYER_TWO = "Player 2"
-
-private const val TEXT_HEADER = "ROCK X PAPER X SCISSORS"
-private const val SECTION_DIVIDER = "----------------------------------------------------------------"
-
 class TextBasedUIHandler(
     private val out: PrintStream
 ) {
+    companion object {
+        private const val EMOJI_ROCK = "✊"
+        private const val EMOJI_PAPER = "✋"
+        private const val EMOJI_SCISSORS = "✌️"
+
+        private const val EMOJI_PLAYER_ONE = "🧐"
+        private const val EMOJI_PLAYER_TWO = "🤪"
+
+        private const val EMOJI_TROPHY = "🏆"
+        private const val EMOJI_RED_X = "❌"
+
+        private const val TEXT_PLAYER_ONE = "Player 1"
+        private const val TEXT_PLAYER_TWO = "Player 2"
+
+        private const val TEXT_HEADER = "ROCK X PAPER X SCISSORS"
+        private const val SECTION_DIVIDER = "----------------------------------------------------------------"
+    }
+
     fun showHeader() {
         out.println(TEXT_HEADER)
         out.println(SECTION_DIVIDER)

@@ -8,14 +8,12 @@ import com.github.lucasls.rockpaperscissors.value.Winner.*
 import com.github.lucasls.rockpaperscissors.value.GameScore
 import com.github.lucasls.rockpaperscissors.value.RoundResult
 
-typealias RoundInterceptor = (RoundResult) -> Unit
-
 class GameService(
     private val playerOne: Player,
     private val playerTwo: Player
 ) {
 
-    fun startGame(numberOfRounds: Int, roundInterceptor: RoundInterceptor = {}): FinalGameResult {
+    fun startGame(numberOfRounds: Int, roundInterceptor: (RoundResult) -> Unit = {}): FinalGameResult {
         var currentScore = GameScore()
 
         repeat(numberOfRounds) {

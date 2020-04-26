@@ -70,4 +70,9 @@ class RockPaperScissorApplicationIntegrationTest {
         expectThat(outputReader.readLine()) contains "Number of draws: ${gameScore.draws}"
 
     }
+
+    @Test
+    fun `should start application from main`() {
+        main()
+    }
 }
