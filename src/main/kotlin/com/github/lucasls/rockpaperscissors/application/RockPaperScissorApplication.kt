@@ -1,17 +1,28 @@
 package com.github.lucasls.rockpaperscissors.application
 
 import com.github.lucasls.rockpaperscissors.application.config.ApplicationConfig
+import com.github.lucasls.rockpaperscissors.application.ui.*
 import com.github.lucasls.rockpaperscissors.service.GameService
+import com.github.lucasls.rockpaperscissors.value.Winner.*
 import java.io.PrintStream
-import java.io.PrintWriter
+
+private const val NUMBER_OF_ROUNDS = 200
 
 class RockPaperScissorApplication(
     private val gameService: GameService,
-    private val out: PrintStream
+    private val uiHandler: TextBasedUIHandler
 ) {
 
-    fun start() {
-        out.println("Hello World")
+    fun start(numberOfRounds: Int = NUMBER_OF_ROUNDS) {
+        uiHandler.showHeader()
+
+        var roundIndex = 0
+        val finalGameResult = gameService.startGame(numberOfRounds) { roundResult ->
+            uiHandler.showRoundResult(roundIndex, roundResult)
+            roundIndex++
+        }
+
+        uiHandler.showFinalResult(finalGameResult)
     }
 
 }
