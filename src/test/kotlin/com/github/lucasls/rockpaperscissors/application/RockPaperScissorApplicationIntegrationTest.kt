@@ -1,13 +1,13 @@
 package com.github.lucasls.rockpaperscissors.application
 
 import com.github.lucasls.rockpaperscissors.application.ui.TextBasedUIHandler
-import com.github.lucasls.rockpaperscissors.domain.FixedShapePlayer
-import com.github.lucasls.rockpaperscissors.domain.RandomShapePlayer
-import com.github.lucasls.rockpaperscissors.domain.Shape
-import com.github.lucasls.rockpaperscissors.service.GameService
-import com.github.lucasls.rockpaperscissors.value.FinalGameResult
-import com.github.lucasls.rockpaperscissors.value.RoundResult
-import com.github.lucasls.rockpaperscissors.value.Winner
+import com.github.lucasls.rockpaperscissors.domain.player.FixedShapePlayer
+import com.github.lucasls.rockpaperscissors.domain.player.RandomShapePlayer
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
+import com.github.lucasls.rockpaperscissors.domain.GameService
+import com.github.lucasls.rockpaperscissors.domain.value.FinalGameResult
+import com.github.lucasls.rockpaperscissors.domain.value.RoundResult
+import com.github.lucasls.rockpaperscissors.domain.value.Winner
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
@@ -18,12 +18,25 @@ import kotlin.random.Random
 class RockPaperScissorApplicationIntegrationTest {
     private val outputStream = ByteArrayOutputStream()
 
-    private val playerOne = spy(RandomShapePlayer(Random))
-    private val playerTwo = spy(FixedShapePlayer(Shape.Rock))
-    private val gameService = spy(GameService(playerOne, playerTwo))
+    private val playerOne = spy(
+        RandomShapePlayer(
+            Random
+        )
+    )
+    private val playerTwo = spy(
+        FixedShapePlayer(
+            Shape.Rock
+        )
+    )
+    private val gameService = spy(
+        GameService(
+            playerOne,
+            playerTwo
+        )
+    )
     private val uiHandler = spy(TextBasedUIHandler(PrintStream(outputStream)))
 
-    private val application = spy(RockPaperScissorApplication(gameService, uiHandler))
+    private val application = spy(RockPaperScissorsApplication(gameService, uiHandler))
 
     @Test
     fun `should run application and output text correctly`() {

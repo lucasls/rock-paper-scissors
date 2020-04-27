@@ -1,5 +1,6 @@
-package com.github.lucasls.rockpaperscissors.domain
+package com.github.lucasls.rockpaperscissors.domain.value
 
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import strikt.api.expectThat

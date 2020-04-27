@@ -1,20 +1,19 @@
-package com.github.lucasls.rockpaperscissors.domain
+package com.github.lucasls.rockpaperscissors.domain.player
 
-import com.nhaarman.mockitokotlin2.any
+import com.github.lucasls.rockpaperscissors.domain.player.RandomShapePlayer
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.stub
 import com.nhaarman.mockitokotlin2.whenever
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import org.mockito.Answers
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
 import kotlin.random.Random
 
 class RandomShapePlayerTest {
     private val random: Random = mock()
-    private val randomShapePlayer = RandomShapePlayer(random)
+    private val randomShapePlayer =
+        RandomShapePlayer(random)
 
     @ParameterizedTest
     @CsvSource(

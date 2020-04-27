@@ -1,12 +1,12 @@
-package com.github.lucasls.rockpaperscissors.service
+package com.github.lucasls.rockpaperscissors.domain
 
-import com.github.lucasls.rockpaperscissors.domain.Player
-import com.github.lucasls.rockpaperscissors.domain.Shape
-import com.github.lucasls.rockpaperscissors.value.FinalGameResult
-import com.github.lucasls.rockpaperscissors.value.Winner
-import com.github.lucasls.rockpaperscissors.value.Winner.*
-import com.github.lucasls.rockpaperscissors.value.GameScore
-import com.github.lucasls.rockpaperscissors.value.RoundResult
+import com.github.lucasls.rockpaperscissors.domain.player.Player
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
+import com.github.lucasls.rockpaperscissors.domain.value.FinalGameResult
+import com.github.lucasls.rockpaperscissors.domain.value.Winner
+import com.github.lucasls.rockpaperscissors.domain.value.Winner.*
+import com.github.lucasls.rockpaperscissors.domain.value.GameScore
+import com.github.lucasls.rockpaperscissors.domain.value.RoundResult
 
 class GameService(
     private val playerOne: Player,

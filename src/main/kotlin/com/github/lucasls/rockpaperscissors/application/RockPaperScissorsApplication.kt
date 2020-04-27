@@ -2,9 +2,9 @@ package com.github.lucasls.rockpaperscissors.application
 
 import com.github.lucasls.rockpaperscissors.application.config.ApplicationConfig
 import com.github.lucasls.rockpaperscissors.application.ui.TextBasedUIHandler
-import com.github.lucasls.rockpaperscissors.service.GameService
+import com.github.lucasls.rockpaperscissors.domain.GameService
 
-class RockPaperScissorApplication(
+class RockPaperScissorsApplication(
     private val gameService: GameService,
     private val uiHandler: TextBasedUIHandler
 ) {

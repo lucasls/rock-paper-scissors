@@ -1,4 +1,4 @@
-package com.github.lucasls.rockpaperscissors.domain
+package com.github.lucasls.rockpaperscissors.domain.value
 
 enum class Shape {
     Scissors {

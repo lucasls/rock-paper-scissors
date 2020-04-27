@@ -1,6 +1,4 @@
-package com.github.lucasls.rockpaperscissors.value
-
-import com.github.lucasls.rockpaperscissors.domain.Shape
+package com.github.lucasls.rockpaperscissors.domain.value
 
 data class RoundResult(
     val playerOneShape: Shape,

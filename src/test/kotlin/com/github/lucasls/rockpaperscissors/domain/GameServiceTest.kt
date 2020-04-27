@@ -1,10 +1,10 @@
-package com.github.lucasls.rockpaperscissors.service
+package com.github.lucasls.rockpaperscissors.domain
 
-import com.github.lucasls.rockpaperscissors.domain.Player
-import com.github.lucasls.rockpaperscissors.domain.Shape
-import com.github.lucasls.rockpaperscissors.value.GameScore
-import com.github.lucasls.rockpaperscissors.value.RoundResult
-import com.github.lucasls.rockpaperscissors.value.Winner
+import com.github.lucasls.rockpaperscissors.domain.player.Player
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
+import com.github.lucasls.rockpaperscissors.domain.value.GameScore
+import com.github.lucasls.rockpaperscissors.domain.value.RoundResult
+import com.github.lucasls.rockpaperscissors.domain.value.Winner
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -16,7 +16,8 @@ class GameServiceTest {
     private val playerOne: Player = mock()
     private val playerTwo: Player = mock()
 
-    private val gameService = GameService(playerOne, playerTwo)
+    private val gameService =
+        GameService(playerOne, playerTwo)
 
     @ParameterizedTest
     @CsvSource(

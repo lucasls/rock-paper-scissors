@@ -1,9 +1,9 @@
 package com.github.lucasls.rockpaperscissors.application.ui
 
-import com.github.lucasls.rockpaperscissors.domain.Shape
-import com.github.lucasls.rockpaperscissors.value.FinalGameResult
-import com.github.lucasls.rockpaperscissors.value.RoundResult
-import com.github.lucasls.rockpaperscissors.value.Winner
+import com.github.lucasls.rockpaperscissors.domain.value.Shape
+import com.github.lucasls.rockpaperscissors.domain.value.FinalGameResult
+import com.github.lucasls.rockpaperscissors.domain.value.RoundResult
+import com.github.lucasls.rockpaperscissors.domain.value.Winner
 import java.io.PrintStream
 
 class TextBasedUIHandler(
